@@ -15,16 +15,19 @@ export default function IssueGuideHome() {
     <div className="min-h-screen bg-background flex flex-col">
       <IssueGuideHeader />
 
-      <main className="flex-1">
-        {/* Hero Section - Full width background */}
-        <div className="w-full bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800">
-          <section className="container relative text-center py-32 md:py-40 space-y-8">
+      <main className="flex-1 w-full">
+        {/* Hero Section - Full width background with inline style for reliability */}
+        <div 
+          className="w-full border-b border-slate-100 dark:border-slate-800"
+          style={{ backgroundColor: 'rgb(248 250 252)' }} // slate-50 equivalent
+        >
+          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative text-center py-32 md:py-40 space-y-8">
             {/* Decorative background elements */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
             
             <div className="relative z-10 max-w-4xl mx-auto space-y-8">
               {homeHeroContent.badgeLabel && (
-                <Badge variant="outline" className="px-4 py-1.5 text-sm font-medium border-primary/20 bg-background/80 backdrop-blur-sm text-primary rounded-full shadow-sm">
+                <Badge variant="outline" className="px-4 py-1.5 text-sm font-medium border-primary/20 bg-white/80 backdrop-blur-sm text-primary rounded-full shadow-sm">
                   {homeHeroContent.badgeLabel}
                 </Badge>
               )}
@@ -42,7 +45,7 @@ export default function IssueGuideHome() {
                 {homeHeroContent.lead}
               </p>
             </div>
-          </section>
+          </div>
         </div>
 
         <div className="container space-y-24 py-24">
