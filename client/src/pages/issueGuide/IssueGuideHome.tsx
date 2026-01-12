@@ -12,52 +12,52 @@ import { Link } from "wouter";
 
 export default function IssueGuideHome() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <IssueGuideHeader />
 
-      <main className="container py-8 space-y-12">
-        {/* Hero Section */}
-        <section className="relative text-center py-20 px-6 space-y-8 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 rounded-[2.5rem] border border-slate-200/60 dark:border-slate-800/60 shadow-sm overflow-hidden">
-          {/* Background Decor */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
-          
-          <div className="relative z-10 max-w-4xl mx-auto space-y-8">
-            {homeHeroContent.badgeLabel && (
-              <Badge variant="outline" className="px-4 py-1.5 text-sm font-medium border-primary/20 bg-primary/5 text-primary rounded-full">
-                {homeHeroContent.badgeLabel}
-              </Badge>
-            )}
-            
-            <div className="space-y-4">
-              <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl text-slate-900 dark:text-slate-50">
-                {homeHeroContent.title}
-              </h1>
-              <p className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-                {homeHeroContent.subtitle}
+      <main className="flex-1">
+        {/* Hero Section - Full width background */}
+        <div className="w-full bg-slate-50/80 dark:bg-slate-950/50 border-b border-slate-100 dark:border-slate-800">
+          <section className="container relative text-center py-24 md:py-32 space-y-8">
+            <div className="max-w-4xl mx-auto space-y-8">
+              {homeHeroContent.badgeLabel && (
+                <Badge variant="outline" className="px-4 py-1.5 text-sm font-medium border-primary/20 bg-background/50 text-primary rounded-full">
+                  {homeHeroContent.badgeLabel}
+                </Badge>
+              )}
+              
+              <div className="space-y-6">
+                <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl text-slate-900 dark:text-slate-50 leading-[1.1]">
+                  {homeHeroContent.title}
+                </h1>
+                <p className="text-2xl font-bold text-slate-700 dark:text-slate-300">
+                  {homeHeroContent.subtitle}
+                </p>
+              </div>
+
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                {homeHeroContent.lead}
               </p>
             </div>
+          </section>
+        </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              {homeHeroContent.lead}
-            </p>
-          </div>
-        </section>
-
-        {/* Target Audience */}
-        <section className="space-y-4">
-          <div className="flex items-center gap-2 text-lg font-semibold">
-            <Users className="h-5 w-5 text-primary" />
-            <h2>想定読者</h2>
-          </div>
-          <ul className="grid gap-2 sm:grid-cols-2">
-            {homeHeroContent.targetAudience.map((item, index) => (
-              <li key={index} className="flex items-start gap-2">
-                <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">{item}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <div className="container space-y-24 py-24">
+          {/* Target Audience */}
+          <section className="space-y-4">
+            <div className="flex items-center gap-2 text-lg font-semibold">
+              <Users className="h-5 w-5 text-primary" />
+              <h2>想定読者</h2>
+            </div>
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {homeHeroContent.targetAudience.map((item, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
+                  <span className="text-muted-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
         {/* Benefits */}
         <section className="space-y-4">
