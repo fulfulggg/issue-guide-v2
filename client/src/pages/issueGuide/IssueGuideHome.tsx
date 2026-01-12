@@ -138,6 +138,8 @@ export default function IssueGuideHome() {
         <footer className="text-center text-sm text-muted-foreground py-8 border-t">
           {homeFooterContent.text}
         </footer>
+
+        </div>
       </main>
     </div>
   );
