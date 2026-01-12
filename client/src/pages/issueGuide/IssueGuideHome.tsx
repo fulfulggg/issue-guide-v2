@@ -17,21 +17,30 @@ export default function IssueGuideHome() {
 
       <main className="container py-8 space-y-12">
         {/* Hero Section */}
-        <section className="text-center space-y-6">
-          {homeHeroContent.badgeLabel && (
-            <Badge variant="secondary" className="text-sm">
-              {homeHeroContent.badgeLabel}
-            </Badge>
-          )}
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            {homeHeroContent.title}
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            {homeHeroContent.subtitle}
-          </p>
-          <p className="max-w-3xl mx-auto text-muted-foreground">
-            {homeHeroContent.lead}
-          </p>
+        <section className="relative text-center py-20 px-6 space-y-8 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 rounded-[2.5rem] border border-slate-200/60 dark:border-slate-800/60 shadow-sm overflow-hidden">
+          {/* Background Decor */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+          
+          <div className="relative z-10 max-w-4xl mx-auto space-y-8">
+            {homeHeroContent.badgeLabel && (
+              <Badge variant="outline" className="px-4 py-1.5 text-sm font-medium border-primary/20 bg-primary/5 text-primary rounded-full">
+                {homeHeroContent.badgeLabel}
+              </Badge>
+            )}
+            
+            <div className="space-y-4">
+              <h1 className="text-5xl font-black tracking-tight sm:text-6xl lg:text-7xl text-slate-900 dark:text-slate-50">
+                {homeHeroContent.title}
+              </h1>
+              <p className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
+                {homeHeroContent.subtitle}
+              </p>
+            </div>
+
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              {homeHeroContent.lead}
+            </p>
+          </div>
         </section>
 
         {/* Target Audience */}
