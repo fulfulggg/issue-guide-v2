@@ -8,7 +8,7 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { path: "/issue-guide", label: "ホーム", icon: Home },
+  { path: "/", label: "ホーム", icon: Home },
   { path: "/issue-guide/learn", label: "学ぶ", icon: BookOpen },
   { path: "/issue-guide/reference", label: "参照する", icon: FileText },
   { path: "/issue-guide/practice", label: "練習する", icon: Dumbbell },

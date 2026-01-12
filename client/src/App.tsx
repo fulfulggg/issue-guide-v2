@@ -27,7 +27,11 @@ export function AppRoutes({
 }) {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
+      {/* Main Route */}
+      <Route path={"/"} component={IssueGuideHome} />
+      
+      {/* Question Mastery (Legacy) Routes */}
+      <Route path={"/question-mastery"} component={Home} />
       <Route path={"/training"} component={Training} />
       <Route path={"/life-changing"} component={LifeChanging} />
       <Route path={"/checklist"} component={Checklist} />
@@ -35,6 +39,7 @@ export function AppRoutes({
       <Route path="/master/:id" component={MasterDetail} />
       <Route path="/masters-questions" component={MastersQuestions} />
       <Route path={"/library"} component={Library} />
+
       {/* Issue Guide routes */}
       <Route path="/issue-guide" component={IssueGuideHome} />
       <Route path="/issue-guide/learn" component={Learn} />
