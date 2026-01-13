@@ -66,7 +66,7 @@ export const practiceContent: PracticeContent = {
         content: "Google DeepMind、新しいマルチモーダルAI「Gemini 2.0」を発表。画像・動画・音声・テキストを統合処理でき、従来モデル比で推論速度3倍、精度20%向上。APIは既存のGemini 1.5と同価格で提供予定。",
       },
       companySituation: {
-        description: "大手通信会社のテクノロジー戦略部門",
+        description: "大手通信会社の部門",
         assets: [
           {
             category: "既存システム",

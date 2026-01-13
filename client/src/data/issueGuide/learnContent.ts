@@ -109,7 +109,7 @@ export interface NotIssueContent {
 export const purposeContent: PurposeContent = {
   id: "purpose",
   title: "目的・想定読者",
-  description: "本マニュアルは、テクノロジー戦略部門の若手メンバーが、日々流れてくる膨大なAIニュースから「自社にとって重要な論点」を素早く設定し、それを分析して意思決定や行動につなげるための基礎スキルを身につけることを目的としています。",
+  description: "本マニュアルは、部門の若手メンバーが、日々流れてくる膨大なAIニュースから「自社にとって重要な論点」を素早く設定し、それを分析して意思決定や行動につなげるための基礎スキルを身につけることを目的としています。",
   importantPremise: {
     title: "重要な前提：速報性と質のバランス",
     points: [
