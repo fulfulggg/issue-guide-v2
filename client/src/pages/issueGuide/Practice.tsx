@@ -5,35 +5,32 @@ import IssueGuideHeader from "@/components/issueGuide/IssueGuideHeader";
 import { practiceContent } from "@/data/issueGuide/practiceContent";
 import { AlertTriangle, CheckCircle2, XCircle, Newspaper, Building2 } from "lucide-react";
 
-export default function Practice() {
+export function PracticeContent() {
   return (
-    <div className="min-h-screen bg-background">
-      <IssueGuideHeader />
+    <>
+      <h1 className="text-3xl font-bold">練習する</h1>
+      <p className="text-muted-foreground">
+        3つの演習問題で論点設定を実践。新技術・競合動向・規制のケースで練習。
+      </p>
 
-      <main className="container py-8 space-y-12">
-        <h1 className="text-3xl font-bold">練習する</h1>
-        <p className="text-muted-foreground">
-          3つの演習問題で論点設定を実践。新技術・競合動向・規制のケースで練習。
+      <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
+        <p className="flex items-center gap-2 text-amber-800 dark:text-amber-200">
+          <AlertTriangle className="h-5 w-5" />
+          {practiceContent.disclaimer}
         </p>
+      </div>
 
-        <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-          <p className="flex items-center gap-2 text-amber-800 dark:text-amber-200">
-            <AlertTriangle className="h-5 w-5" />
-            {practiceContent.disclaimer}
-          </p>
-        </div>
-
-        {/* Exercises */}
-        <div className="space-y-8">
-          {practiceContent.exercises.map((exercise) => (
-            <Card key={exercise.id} className="overflow-hidden">
-              <CardHeader className="bg-muted/50">
-                <div className="flex items-center gap-2 mb-2">
-                  <Badge variant="outline">{exercise.category}</Badge>
-                </div>
-                <CardTitle className="text-xl">{exercise.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6 space-y-6">
+      {/* Exercises */}
+      <div className="space-y-8">
+        {practiceContent.exercises.map((exercise) => (
+          <Card key={exercise.id} className="overflow-hidden">
+            <CardHeader className="bg-muted/50">
+              <div className="flex items-center gap-2 mb-2">
+                <Badge variant="outline">{exercise.category}</Badge>
+              </div>
+              <CardTitle className="text-xl">{exercise.title}</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-6 space-y-6">
                 {/* News */}
                 <div className="space-y-2">
                   <h3 className="font-semibold flex items-center gap-2">
@@ -139,32 +136,43 @@ export default function Practice() {
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
 
-        {/* Summary */}
-        <Card className="border-primary">
-          <CardHeader>
-            <CardTitle>{practiceContent.summary.title}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <ul className="space-y-2">
-              {practiceContent.summary.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <span className="text-primary">□</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
-              <p className="text-amber-800 dark:text-amber-200 font-medium">
-                {practiceContent.summary.emphasis}
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+      {/* Summary */}
+      <Card className="border-primary">
+        <CardHeader>
+          <CardTitle>{practiceContent.summary.title}</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <ul className="space-y-2">
+            {practiceContent.summary.items.map((item, index) => (
+              <li key={index} className="flex items-start gap-2">
+                <span className="text-primary">□</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="bg-amber-50 dark:bg-amber-950/30 p-4 rounded-lg border border-amber-200 dark:border-amber-800">
+            <p className="text-amber-800 dark:text-amber-200 font-medium">
+              {practiceContent.summary.emphasis}
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </>
+  );
+}
+
+export default function Practice() {
+  return (
+    <div className="min-h-screen bg-background">
+      <IssueGuideHeader />
+
+      <main className="container py-8 space-y-12">
+        <PracticeContent />
       </main>
     </div>
   );

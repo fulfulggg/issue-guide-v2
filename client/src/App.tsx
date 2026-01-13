@@ -19,6 +19,19 @@ import Learn from "./pages/issueGuide/Learn";
 import Reference from "./pages/issueGuide/Reference";
 import Practice from "./pages/issueGuide/Practice";
 import Evaluate from "./pages/issueGuide/Evaluate";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
+
+function RedirectToHash({ hash }: { hash: string }) {
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    // Replace current entry to keep back/forward sensible
+    setLocation(`/${hash}`, { replace: true });
+  }, [hash, setLocation]);
+
+  return null;
+}
 
 export function AppRoutes({
   includeBuilder = true,
@@ -42,10 +55,16 @@ export function AppRoutes({
 
       {/* Issue Guide routes */}
       <Route path="/issue-guide" component={IssueGuideHome} />
-      <Route path="/issue-guide/learn" component={Learn} />
-      <Route path="/issue-guide/reference" component={Reference} />
-      <Route path="/issue-guide/practice" component={Practice} />
-      <Route path="/issue-guide/evaluate" component={Evaluate} />
+      <Route path="/issue-guide/learn" component={() => <RedirectToHash hash="#learn" />} />
+      <Route path="/issue-guide/reference" component={() => <RedirectToHash hash="#reference" />} />
+      <Route path="/issue-guide/practice" component={() => <RedirectToHash hash="#practice" />} />
+      <Route path="/issue-guide/evaluate" component={() => <RedirectToHash hash="#evaluate" />} />
+
+      {/* (Optional) Keep dedicated pages accessible under /issue-guide/page/* */}
+      <Route path="/issue-guide/page/learn" component={Learn} />
+      <Route path="/issue-guide/page/reference" component={Reference} />
+      <Route path="/issue-guide/page/practice" component={Practice} />
+      <Route path="/issue-guide/page/evaluate" component={Evaluate} />
       {includeBuilder ? <Route path={"/builder"} component={Builder} /> : null}
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />

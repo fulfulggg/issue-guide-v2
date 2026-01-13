@@ -27,7 +27,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 
-export default function Evaluate() {
+export function EvaluateContent() {
   const { failurePatterns, selfContextualizationGate, finalChecklist } =
     evaluateContent;
 
@@ -41,7 +41,11 @@ export default function Evaluate() {
     setGateChecks((prev) => ({ ...prev, [id]: checked }));
   };
 
-  const handleFinalCheck = (categoryId: number, itemIndex: number, checked: boolean) => {
+  const handleFinalCheck = (
+    categoryId: number,
+    itemIndex: number,
+    checked: boolean
+  ) => {
     const key = `${categoryId}-${itemIndex}`;
     setFinalChecks((prev) => ({ ...prev, [key]: checked }));
   };
@@ -59,10 +63,7 @@ export default function Evaluate() {
   const checkedFinalItems = Object.values(finalChecks).filter(Boolean).length;
 
   return (
-    <div className="min-h-screen bg-background">
-      <IssueGuideHeader />
-
-      <main className="container mx-auto px-4 py-8 max-w-4xl">
+    <>
         {/* ページタイトル */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">{evaluateContent.title}</h1>
@@ -305,6 +306,17 @@ export default function Evaluate() {
             </CardContent>
           </Card>
         </section>
+    </>
+  );
+}
+
+export default function Evaluate() {
+  return (
+    <div className="min-h-screen bg-background">
+      <IssueGuideHeader />
+
+      <main className="container mx-auto px-4 py-8 max-w-4xl">
+        <EvaluateContent />
       </main>
     </div>
   );

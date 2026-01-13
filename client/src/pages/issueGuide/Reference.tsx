@@ -13,18 +13,16 @@ import {
 } from "@/data/issueGuide/referenceContent";
 import { CheckCircle2, Lightbulb, Clock, AlertTriangle, BookOpen } from "lucide-react";
 
-export default function Reference() {
+export function ReferenceContent({ showSectionNav = true }: { showSectionNav?: boolean }) {
   return (
-    <div className="min-h-screen bg-background">
-      <IssueGuideHeader />
+    <>
+      <h1 className="text-3xl font-bold">参照する</h1>
+      <p className="text-muted-foreground">
+        手順、ワークフロー、テンプレートを確認。実務ですぐに使えるリファレンス集。
+      </p>
 
-      <main className="container py-8 space-y-12">
-        <h1 className="text-3xl font-bold">参照する</h1>
-        <p className="text-muted-foreground">
-          手順、ワークフロー、テンプレートを確認。実務ですぐに使えるリファレンス集。
-        </p>
-
-        {/* Section Navigation */}
+      {/* Section Navigation */}
+      {showSectionNav ? (
         <nav className="flex flex-wrap gap-2">
           {referenceSections.map((section) => (
             <a
@@ -36,6 +34,7 @@ export default function Reference() {
             </a>
           ))}
         </nav>
+      ) : null}
 
         {/* Section 6: Basic Process */}
         <section id="basic-process" className="space-y-4 scroll-mt-20">
@@ -336,6 +335,17 @@ export default function Reference() {
             </div>
           </div>
         </section>
+    </>
+  );
+}
+
+export default function Reference() {
+  return (
+    <div className="min-h-screen bg-background">
+      <IssueGuideHeader />
+
+      <main className="container py-8 space-y-12">
+        <ReferenceContent />
       </main>
     </div>
   );

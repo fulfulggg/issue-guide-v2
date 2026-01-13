@@ -11,18 +11,16 @@ import {
 } from "@/data/issueGuide/learnContent";
 import { AlertCircle, CheckCircle2, XCircle, Lightbulb, ArrowRight } from "lucide-react";
 
-export default function Learn() {
+export function LearnContent({ showSectionNav = true }: { showSectionNav?: boolean }) {
   return (
-    <div className="min-h-screen bg-background">
-      <IssueGuideHeader />
+    <>
+      <h2 className="text-3xl font-bold">学ぶ</h2>
+      <p className="text-muted-foreground">
+        論点の定義、重要性、構成要素を理解する。基礎概念をしっかり押さえましょう。
+      </p>
 
-      <main className="container py-8 space-y-12">
-        <h1 className="text-3xl font-bold">学ぶ</h1>
-        <p className="text-muted-foreground">
-          論点の定義、重要性、構成要素を理解する。基礎概念をしっかり押さえましょう。
-        </p>
-
-        {/* Section Navigation */}
+      {/* Section Navigation */}
+      {showSectionNav ? (
         <nav className="flex flex-wrap gap-2">
           {learnSections.map((section) => (
             <a
@@ -34,9 +32,10 @@ export default function Learn() {
             </a>
           ))}
         </nav>
+      ) : null}
 
-        {/* Section 1: Purpose */}
-        <section id="purpose" className="space-y-4 scroll-mt-20">
+      {/* Section 1: Purpose */}
+      <section id="purpose" className="space-y-4 scroll-mt-20">
           <h2 className="text-2xl font-bold flex items-center gap-2">
             <span className="bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
             {purposeContent.title}
@@ -324,6 +323,17 @@ export default function Learn() {
             </CardContent>
           </Card>
         </section>
+    </>
+  );
+}
+
+export default function Learn() {
+  return (
+    <div className="min-h-screen bg-background">
+      <IssueGuideHeader />
+
+      <main className="container py-8 space-y-12">
+        <LearnContent />
       </main>
     </div>
   );

@@ -9,8 +9,27 @@ import {
 } from "@/data/issueGuide/homeContent";
 import { CheckCircle2, Target, Users } from "lucide-react";
 import { Link } from "wouter";
+import { useEffect } from "react";
+import { LearnContent } from "@/pages/issueGuide/Learn";
+import { ReferenceContent } from "@/pages/issueGuide/Reference";
+import { PracticeContent } from "@/pages/issueGuide/Practice";
+import { EvaluateContent } from "@/pages/issueGuide/Evaluate";
 
 export default function IssueGuideHome() {
+  useEffect(() => {
+    const scrollToHash = () => {
+      const id = window.location.hash.replace(/^#/, "");
+      if (!id) return;
+      const el = document.getElementById(id);
+      el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    // On first load and on hash changes
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <IssueGuideHeader />
@@ -98,6 +117,28 @@ export default function IssueGuideHome() {
                 </Card>
               </Link>
             ))}
+          </div>
+        </section>
+
+        {/* Learn */}
+        <section id="learn" className="space-y-12 scroll-mt-24">
+          <LearnContent showSectionNav={false} />
+        </section>
+
+        {/* Reference */}
+        <section id="reference" className="space-y-12 scroll-mt-24">
+          <ReferenceContent showSectionNav={false} />
+        </section>
+
+        {/* Practice */}
+        <section id="practice" className="space-y-12 scroll-mt-24">
+          <PracticeContent />
+        </section>
+
+        {/* Evaluate */}
+        <section id="evaluate" className="space-y-12 scroll-mt-24">
+          <div className="max-w-4xl mx-auto">
+            <EvaluateContent />
           </div>
         </section>
 
