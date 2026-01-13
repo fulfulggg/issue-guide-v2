@@ -858,5 +858,4 @@ export const referenceSections = [
   { id: "mece", title: "MECEで論点候補を出す手順", sectionNumber: 7 },
   { id: "workflow", title: "日次ワークフロー", sectionNumber: 8 },
   { id: "templates", title: "テンプレ集", sectionNumber: 9 },
-  { id: "references", title: "参考文献", sectionNumber: 12 },
 ] as const;

@@ -133,7 +133,7 @@ export const definitionContent: DefinitionContent = {
   title: "論点の定義（短く、厳密に）",
   mainDefinition: {
     text: "「答えによって、私たちの決定や行動が変わる未解決の質問」",
-    source: "出典：A.T. Kearney「イシューレイズの方法」",
+    source: "",
   },
   fiveConditions: [
     { id: 1, text: "質問形式である ─ 「～か？」「どう～すべきか？」という問いの形をとる" },
@@ -162,7 +162,7 @@ export const importanceContent: ImportanceContent = {
   title: "論点が重要な理由（AIニュース分析での位置づけ）",
   quote: {
     text: "「適切なイシュー（論点）が提起できれば、与えられたテーマの半分は解決できたことになる」",
-    source: "出典：A.T. Kearney「イシューレイズの方法」",
+    source: "",
   },
   threeDifferences: [
     {

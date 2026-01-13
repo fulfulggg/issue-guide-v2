@@ -8,10 +8,9 @@ import {
   meceContent,
   workflowContent,
   templateContent,
-  referenceListContent,
   referenceSections,
 } from "@/data/issueGuide/referenceContent";
-import { CheckCircle2, Lightbulb, Clock, AlertTriangle, BookOpen } from "lucide-react";
+import { CheckCircle2, Lightbulb, Clock, AlertTriangle } from "lucide-react";
 
 export function ReferenceContent({ showSectionNav = true }: { showSectionNav?: boolean }) {
   return (
@@ -278,63 +277,6 @@ export function ReferenceContent({ showSectionNav = true }: { showSectionNav?: b
           </Tabs>
         </section>
 
-        {/* Section 12: References */}
-        <section id="references" className="space-y-4 scroll-mt-20">
-          <h2 className="text-2xl font-bold flex items-center gap-2">
-            <span className="bg-primary text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center text-sm">12</span>
-            {referenceListContent.title}
-          </h2>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">主要参考文献</h3>
-            {referenceListContent.primaryReferences.map((ref) => (
-              <Card key={ref.id}>
-                <CardHeader>
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <BookOpen className="h-4 w-4" />
-                    {ref.title}
-                  </CardTitle>
-                  <CardDescription>{ref.source}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <p className="font-medium text-sm mb-2">主なポイント：</p>
-                    <ul className="space-y-1 text-sm text-muted-foreground">
-                      {ref.keyPoints.map((point, index) => (
-                        <li key={index}>• {point}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="font-medium text-sm mb-2">使用セクション：</p>
-                    <div className="flex flex-wrap gap-1">
-                      {ref.usedIn.map((section, index) => (
-                        <span key={index} className="px-2 py-1 bg-muted rounded text-xs">
-                          {section}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">推薦図書</h3>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {referenceListContent.recommendedBooks.map((book, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="text-base">{book.title}</CardTitle>
-                    <CardDescription>{book.author}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{book.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
     </>
   );
 }

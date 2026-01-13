@@ -88,7 +88,7 @@ export const homeNavigationCards: HomeNavigationCard[] = [
 export const homeKeyConceptContent: HomeKeyConceptContent = {
   title: "論点とは何か？",
   definition: "「答えによって、私たちの決定や行動が変わる未解決の質問」",
-  source: "出典：A.T. Kearney「イシューレイズの方法」",
+  source: "",
   conditions: [
     { id: 1, text: "質問形式である ─ 「～か？」「どう～すべきか？」という問いの形をとる" },
     { id: 2, text: "分岐する選択肢を持つ ─ 複数の答えが考えられ、それぞれ異なる含意を持つ" },
