@@ -6,7 +6,7 @@ export interface ExerciseNews {
 
 export interface CompanySituation {
   description: string;
-  assets: {
+  assets: {¡
     category: string;
     items: string[];
   }[];
